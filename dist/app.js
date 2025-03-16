@@ -27,21 +27,33 @@ class Cliente {
         prodotto.assegnaCliente(this, pzOrdinati);
     }
 }
+// Costante tipizzata per gestire le descrizioni dei processi produttivi
+const descrProcessi = {
+    ["cucitura" /* ProcessiProduttivi.Cucitura */]: "fase produttiva di cucitura",
+    ["produzione" /* ProcessiProduttivi.Produzione */]: "fase centrale della produzione",
+    ["pronto alla vendita" /* ProcessiProduttivi.ProntoAllaVendita */]: "fase di stoccaggio in negozio retail"
+};
+// creo una funzione che associa Processo Produttivo alla sua descrizione
+//function getDescrProcessi(processo: ProcessiProduttivi){
+//    return descrProcessi[processo]
+//}
 // Classe processoProduzione
 class processoProduzione {
-    constructor(processName, description) {
+    constructor(processName) {
         this.processName = processName;
-        this.description = description;
+        this.description = descrProcessi[processName];
         this.productInProduction = [];
     }
     aggiungiProdotto(prodotto, pzProdotti) {
-        if (this.processName === 'pronto alla vendita') {
+        if (this.processName === 'pronto alla vendita') { //  se il prodotto é pronto alla vendita si aggiungono in stock i prodotti altrimenti completa solo il processo produttivo
             prodotto.quantity = prodotto.quantity + pzProdotti;
             console.log(`N. ${pzProdotti} di ${prodotto.type} ha completato la fase di ${this.processName}`);
+            console.log(`La fase di ${this.processName} consiste nella ${this.description}`);
             console.log(`la quantità di ${prodotto.type} in stock é ora di ${prodotto.quantity}`);
         }
         else {
             console.log(`N. ${pzProdotti} di ${prodotto.type} ha completato la fase di ${this.processName}`);
+            console.log(`La fase di ${this.processName} consiste nella ${this.description}`);
         }
     }
 }
@@ -51,9 +63,9 @@ let costumeDaDonna = new Prodotto('bikini', 123, 'S', 0); // Prodotto costume da
 let infraditoBlu = new Prodotto('infradito Blu', 335, '39', 20); // Prodotto infradito, codice 335, taglia 39, 20 pezzi giá a magazzino
 let cliente1 = new Cliente('mario', 'rossi', 'mariorossi@gmail.com', 'VISA');
 let cliente2 = new Cliente('sandra', 'verdi', 'sandraverdi@gmail.com', 'MASTERCARD');
-let processo1 = new processoProduzione('cucitura', 'produzione');
-let processo2 = new processoProduzione('confezionamento', 'produzione');
-let processo3 = new processoProduzione('pronto alla vendita', 'consegna retail');
+let processo1 = new processoProduzione("cucitura" /* ProcessiProduttivi.Cucitura */);
+let processo2 = new processoProduzione("produzione" /* ProcessiProduttivi.Produzione */);
+let processo3 = new processoProduzione("pronto alla vendita" /* ProcessiProduttivi.ProntoAllaVendita */);
 console.log('Benvenuto in Sunnee!');
 // Produco i prodotti
 // Processo di produzione Costume da uomo 

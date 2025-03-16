@@ -70,6 +70,21 @@ class Cliente implements ICliente{
         prodotto.assegnaCliente(this, pzOrdinati);
     }
 }
+// Const enum con i processi produttivi
+
+const enum ProcessiProduttivi{
+    Cucitura = 'cucitura',
+    Produzione = 'produzione',
+    ProntoAllaVendita = 'pronto alla vendita'
+}
+
+// Costante tipizzata per associare le descrizioni ai vari processi produttivi
+
+const descrProcessi: Record<ProcessiProduttivi, string> = {
+    [ProcessiProduttivi.Cucitura]: "fase produttiva di cucitura",
+    [ProcessiProduttivi.Produzione]: "fase centrale della produzione",
+    [ProcessiProduttivi.ProntoAllaVendita]: "fase di stoccaggio in negozio retail"
+};
 
 // Classe processoProduzione
 
@@ -78,9 +93,9 @@ class processoProduzione implements IProcessoProduzione{
     description: string;
     productInProduction: IProdotto[];
     
-    constructor(processName: string, description: string, ){
+    constructor(processName: ProcessiProduttivi){
         this.processName = processName
-        this.description = description
+        this.description = descrProcessi[processName]
         this.productInProduction = []
     }
 
@@ -89,9 +104,11 @@ class processoProduzione implements IProcessoProduzione{
         if (this.processName === 'pronto alla vendita'){ //  se il prodotto é pronto alla vendita si aggiungono in stock i prodotti altrimenti completa solo il processo produttivo
        prodotto.quantity = prodotto.quantity+pzProdotti
        console.log(`N. ${pzProdotti} di ${prodotto.type} ha completato la fase di ${this.processName}`)
+       console.log(`La fase di ${this.processName} consiste nella ${this.description}`)
        console.log(`la quantità di ${prodotto.type} in stock é ora di ${prodotto.quantity}`)
         }else{
-       console.log(`N. ${pzProdotti} di ${prodotto.type} ha completato la fase di ${this.processName}`)}
+       console.log(`N. ${pzProdotti} di ${prodotto.type} ha completato la fase di ${this.processName}`)
+       console.log(`La fase di ${this.processName} consiste nella ${this.description}`)}
     }
 }
 
@@ -105,9 +122,9 @@ let cliente1 = new Cliente('mario','rossi','mariorossi@gmail.com','VISA')
 let cliente2 = new Cliente('sandra','verdi','sandraverdi@gmail.com','MASTERCARD')
 
 
-let processo1 = new processoProduzione('cucitura','produzione')
-let processo2 = new processoProduzione('confezionamento', 'produzione')
-let processo3 = new processoProduzione('pronto alla vendita', 'consegna retail')
+let processo1 = new processoProduzione(ProcessiProduttivi.Cucitura)
+let processo2 = new processoProduzione(ProcessiProduttivi.Produzione)
+let processo3 = new processoProduzione(ProcessiProduttivi.ProntoAllaVendita)
 
 
 console.log('Benvenuto in Sunnee!')
