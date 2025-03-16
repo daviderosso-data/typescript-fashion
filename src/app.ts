@@ -73,17 +73,17 @@ class Cliente implements ICliente{
 // Const enum con i processi produttivi
 
 const enum ProcessiProduttivi{
-    Cucitura = 'cucitura',
-    Produzione = 'produzione',
-    ProntoAllaVendita = 'pronto alla vendita'
+    CUCITURA = 'cucitura',
+    PRODUZIONE = 'produzione',
+    PRONTO_ALLA_VENDITA = 'pronto alla vendita'
 }
 
 // Costante tipizzata per associare le descrizioni ai vari processi produttivi
 
 const descrProcessi: Record<ProcessiProduttivi, string> = {
-    [ProcessiProduttivi.Cucitura]: "fase produttiva di cucitura",
-    [ProcessiProduttivi.Produzione]: "fase centrale della produzione",
-    [ProcessiProduttivi.ProntoAllaVendita]: "fase di stoccaggio in negozio retail"
+    [ProcessiProduttivi.CUCITURA]: "fase produttiva di cucitura",
+    [ProcessiProduttivi.PRODUZIONE]: "fase centrale della produzione",
+    [ProcessiProduttivi.PRONTO_ALLA_VENDITA]: "fase di stoccaggio in negozio retail"
 };
 
 // Classe processoProduzione
@@ -122,9 +122,9 @@ let cliente1 = new Cliente('mario','rossi','mariorossi@gmail.com','VISA')
 let cliente2 = new Cliente('sandra','verdi','sandraverdi@gmail.com','MASTERCARD')
 
 
-let processo1 = new processoProduzione(ProcessiProduttivi.Cucitura)
-let processo2 = new processoProduzione(ProcessiProduttivi.Produzione)
-let processo3 = new processoProduzione(ProcessiProduttivi.ProntoAllaVendita)
+let processo1 = new processoProduzione(ProcessiProduttivi.CUCITURA)
+let processo2 = new processoProduzione(ProcessiProduttivi.PRODUZIONE)
+let processo3 = new processoProduzione(ProcessiProduttivi.PRONTO_ALLA_VENDITA)
 
 
 console.log('Benvenuto in Sunnee!')

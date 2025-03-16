@@ -29,9 +29,9 @@ class Cliente {
 }
 // Costante tipizzata per associare le descrizioni ai vari processi produttivi
 const descrProcessi = {
-    ["cucitura" /* ProcessiProduttivi.Cucitura */]: "fase produttiva di cucitura",
-    ["produzione" /* ProcessiProduttivi.Produzione */]: "fase centrale della produzione",
-    ["pronto alla vendita" /* ProcessiProduttivi.ProntoAllaVendita */]: "fase di stoccaggio in negozio retail"
+    ["cucitura" /* ProcessiProduttivi.CUCITURA */]: "fase produttiva di cucitura",
+    ["produzione" /* ProcessiProduttivi.PRODUZIONE */]: "fase centrale della produzione",
+    ["pronto alla vendita" /* ProcessiProduttivi.PRONTO_ALLA_VENDITA */]: "fase di stoccaggio in negozio retail"
 };
 // Classe processoProduzione
 class processoProduzione {
@@ -59,9 +59,9 @@ let costumeDaDonna = new Prodotto('bikini', 123, 'S', 0); // Prodotto costume da
 let infraditoBlu = new Prodotto('infradito Blu', 335, '39', 20); // Prodotto infradito, codice 335, taglia 39, 20 pezzi giá a magazzino
 let cliente1 = new Cliente('mario', 'rossi', 'mariorossi@gmail.com', 'VISA');
 let cliente2 = new Cliente('sandra', 'verdi', 'sandraverdi@gmail.com', 'MASTERCARD');
-let processo1 = new processoProduzione("cucitura" /* ProcessiProduttivi.Cucitura */);
-let processo2 = new processoProduzione("produzione" /* ProcessiProduttivi.Produzione */);
-let processo3 = new processoProduzione("pronto alla vendita" /* ProcessiProduttivi.ProntoAllaVendita */);
+let processo1 = new processoProduzione("cucitura" /* ProcessiProduttivi.CUCITURA */);
+let processo2 = new processoProduzione("produzione" /* ProcessiProduttivi.PRODUZIONE */);
+let processo3 = new processoProduzione("pronto alla vendita" /* ProcessiProduttivi.PRONTO_ALLA_VENDITA */);
 console.log('Benvenuto in Sunnee!');
 // Produco i prodotti
 // Processo di produzione Costume da uomo 
