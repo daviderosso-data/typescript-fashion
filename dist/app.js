@@ -27,16 +27,12 @@ class Cliente {
         prodotto.assegnaCliente(this, pzOrdinati);
     }
 }
-// Costante tipizzata per gestire le descrizioni dei processi produttivi
+// Costante tipizzata per associare le descrizioni ai vari processi produttivi
 const descrProcessi = {
     ["cucitura" /* ProcessiProduttivi.Cucitura */]: "fase produttiva di cucitura",
     ["produzione" /* ProcessiProduttivi.Produzione */]: "fase centrale della produzione",
     ["pronto alla vendita" /* ProcessiProduttivi.ProntoAllaVendita */]: "fase di stoccaggio in negozio retail"
 };
-// creo una funzione che associa Processo Produttivo alla sua descrizione
-//function getDescrProcessi(processo: ProcessiProduttivi){
-//    return descrProcessi[processo]
-//}
 // Classe processoProduzione
 class processoProduzione {
     constructor(processName) {
